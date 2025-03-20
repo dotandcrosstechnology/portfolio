@@ -230,6 +230,32 @@
 })();
 
 
+//contact us email form script
 
 
 
+const form = document.querySelector(".php-email-form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission
+  
+  emailjs.send("service_uoir788", "template_dffljlm", {
+    from_name: document.getElementById("name-field").value,   // Maps to {{from_name}}
+    from_email: document.getElementById("email-field").value, // Maps to {{from_email}}
+    subject: document.getElementById("subject-field").value,  // Maps to {{subject}}
+    message: document.getElementById("message-field").value   // Maps to {{message}}
+  })
+  .then(response => {
+    alert("Email sent successfully!");
+  })
+  .catch(error => {
+    console.error("Error sending email:", error);
+  });
+
+
+
+  document.getElementById("name-field").value = '';
+  document.getElementById("email-field").value = '';
+ document.getElementById("subject-field").value = '';
+ document.getElementById("message-field").value = ''; 
+});

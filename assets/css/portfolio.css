@@ -1,0 +1,74 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --dark-color: #2c3e50;
+}
+
+/* body {
+    background-color: #f4f6f7;
+    font-family: 'Arial', sans-serif;
+} */
+
+/* .portfolio-section {
+    padding: 50px 0;
+} */
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    
+}
+
+.project-card .project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: 0.5s ease;
+}
+
+.project-card:hover .project-overlay {
+    height: 100%;
+}
+
+.project-details {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white !important;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-details {
+    opacity: 1;
+}
+
+.tech-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 0.8rem;
+}

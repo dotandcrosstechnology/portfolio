@@ -27,6 +27,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
 
   <!-- =======================================================
   * Template Name: Arsha
@@ -53,6 +54,7 @@
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
           <!-- <li><a href="#portfolio">Portfolio</a></li> -->
           <li><a href="#team">Team</a></li>
           <!-- <li><a href="#pricing">Pricing</a></li> -->
@@ -84,7 +86,7 @@
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
             <h1>Better Solutions For Your Business</h1>
-            <p>We are team of talented designers making websites with Bootstrap</p>
+            <p>Empowering businesses with beautiful and high-performing web solutions.</p>
             <div class="d-flex">
               <a href="#contact" class="btn-get-started">Get Started</a>
     
@@ -242,6 +244,24 @@
 
     </section><!-- /Services Section -->
 
+
+
+
+    <!-- Portfolio Section -->
+
+    <div class="container-fluid portfolio-section">
+      <div class="row">
+          <div class="col-12 text-center my-5">
+              <h1 class="display-4">My Projects</h1>
+              <p class="lead">Explore my creative portfolio of web development projects</p>
+          </div>
+      </div>
+      
+      <div class="row" id="portfolioContainer">
+          <!-- Projects will be dynamically inserted here -->
+      </div>
+  </div>
+
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
 
@@ -314,10 +334,11 @@
               </div>
             </div>
           </div><!-- End Team Member -->
+          
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/abdullahwebpp.png" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="abdullahdpfinal.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Abdullah Mushtaq</h4>
                 <span>Co-Founder and Developer</span>
@@ -332,23 +353,22 @@
             </div>
           </div><!-- End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/yasar.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Yaser</h4>
-                <span>Co-Founder and Developer</span>
-                <!-- <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p> -->
+                <h4>Amanda Jepson</h4>
+                <span>Accountant</span>
+                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href="https://www.facebook.com/yaser.lovere?mibextid=wwXIfr&mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/btwitx.yaser?igsh=MWNzNnp3bXE4cTB4ZQ%3D%3D&utm_source=qr"><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
                 </div>
               </div>
             </div>
-          </div>  
-          <!-- End Team Member -->
+          </div>End Team Member -->
 
         </div>
 
@@ -364,32 +384,16 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
-        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
       </div><!-- End Section Title -->
-
+    
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
+    
+        <div class="swiper testimonial-swiper">
           <div class="swiper-wrapper">
-
+    
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="Saul Goodman">
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <div class="stars">
@@ -402,10 +406,10 @@
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
+    
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="Sara Wilsson">
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
                 <div class="stars">
@@ -413,15 +417,15 @@
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>We saw a massive improvement in our search engine rankings after working with Dot and Cross Technology. Their SEO strategies increased our organic traffic, and now we’re getting more leads than ever. Excellent service!</span>
+                  <span>We saw a massive improvement in our search engine rankings after working with Dot and Cross Technology. Their SEO strategies increased our organic traffic, and now we're getting more leads than ever. Excellent service!</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
+    
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="Jena Karlis">
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
                 <div class="stars">
@@ -434,10 +438,10 @@
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
+    
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="Matt Brandon">
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
                 <div class="stars">
@@ -450,10 +454,10 @@
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
+    
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="John Larson">
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
                 <div class="stars">
@@ -466,13 +470,13 @@
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
+    
           </div>
           <div class="swiper-pagination"></div>
         </div>
-
+    
       </div>
-
+    
     </section><!-- /Testimonials Section -->
 
     <!-- Faq 2 Section -->
@@ -593,37 +597,43 @@
             </div>
           </div>
 
+          <!-- contact form -->
+
           <div class="col-lg-7">
             <form   class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <div class="col-md-6">
                   <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control " required="">
+                  <input type="text" name="name" id="name-field" class="form-control" required>
                 </div>
-
+                
                 <div class="col-md-6">
                   <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control " name="email" id="email-field" required="">
+                  <input type="email" class="form-control" name="email" id="email-field" required>
                 </div>
-
+                
                 <div class="col-md-12">
                   <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                  <input type="text" class="form-control" name="subject" id="subject-field" required>
                 </div>
-
+                
                 <div class="col-md-12">
                   <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control  " name="message" rows="10" id="message-field" required=""></textarea>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
                 </div>
-
+                
                 <div class="col-md-12 text-center">
-                  <!-- <div class="loading">Loading</div>
-                  <div class="error-message"></div> -->
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button  type="submit">Send E-mail</button>
+                  <button type="submit" class="submit-btn">Send E-mail</button>
                 </div>
+
+
+                <!-- Custom alert popup (hidden by default) -->
+<div id="customAlert" class="custom-alert">
+  <span class="custom-alert-icon"></span>
+  <span class="custom-alert-message"></span>
+  <button class="custom-alert-close">&times;</button>
+</div>
 
               </div>
             </form>
@@ -744,6 +754,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/portfolio.js"></script>
 
 
 

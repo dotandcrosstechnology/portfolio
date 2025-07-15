@@ -146,6 +146,7 @@ h6 {
   line-height: 1;
 }
 
+
 .header .logo img {
   height: 50px;
   width: 50px;
@@ -1639,17 +1640,15 @@ section,
   margin-bottom: 40px;
 }
 
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
-  overflow: hidden;
-}
-
 .testimonials .testimonial-item {
   text-align: center;
+  padding: 20px;
 }
 
 .testimonials .testimonial-item .testimonial-img {
   width: 120px;
+  height: 120px;
+  object-fit: cover;
   border-radius: 50%;
   border: 4px solid var(--background-color);
   margin: 0 auto;
@@ -1659,6 +1658,7 @@ section,
   font-size: 20px;
   font-weight: bold;
   margin: 10px 0 5px 0;
+  color: var(--heading-color);
 }
 
 .testimonials .testimonial-item h4 {
@@ -1700,10 +1700,18 @@ section,
 .testimonials .testimonial-item p {
   font-style: italic;
   margin: 0 auto 15px auto;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.testimonials .swiper {
+  overflow: hidden;
+  padding: 20px 0;
 }
 
 .testimonials .swiper-wrapper {
   height: auto;
+  align-items: center;
 }
 
 .testimonials .swiper-pagination {
@@ -1716,15 +1724,21 @@ section,
   height: 12px;
   opacity: 1;
   background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  transition: all 0.3s ease;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--accent-color);
+  transform: scale(1.2);
 }
 
 @media (min-width: 992px) {
   .testimonials .testimonial-item p {
     width: 80%;
+  }
+  
+  .testimonials .swiper-slide {
+    padding: 0 15px;
   }
 }
 
@@ -2055,3 +2069,107 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
+
+
+
+/* popup and form styling  */
+  /* Animation styles */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+  }
+
+  /* Popup styles */
+  .custom-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    max-width: 90%;
+    width: 400px;
+    animation: fadeIn 0.5s ease-out;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .custom-alert.show {
+    opacity: 1;
+  }
+
+  .custom-alert.success {
+    background: #4caf50;
+    color: white;
+  }
+
+  .custom-alert.error {
+    background: #f44336;
+    color: white;
+  }
+
+  .custom-alert-icon {
+    margin-right: 15px;
+    font-size: 24px;
+    animation: bounce 1s;
+  }
+
+  .custom-alert-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .custom-alert-close:hover {
+    opacity: 1;
+  }
+
+  /* Form button animation */
+  @keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .submit-btn {
+    transition: all 0.3s;
+  }
+
+  .submit-btn.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  .submit-btn.loading:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }

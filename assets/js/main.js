@@ -112,21 +112,74 @@
   /**
    * Init swiper sliders
    */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+  // function initSwiper() {
+  //   document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+  //     let config = JSON.parse(
+  //       swiperElement.querySelector(".swiper-config").innerHTML.trim()
+  //     );
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
+  //     if (swiperElement.classList.contains("swiper-tab")) {
+  //       initSwiperWithCustomPagination(swiperElement, config);
+  //     } else {
+  //       new Swiper(swiperElement, config);
+  //     }
+  //   });
+  // }
+
+  // window.addEventListener("load", initSwiper);
+ 
+
+
+
+  //slider
+
+
+    // Initialize Swiper
+    const testimonialSwiper = new Swiper('.testimonial-swiper', {
+      loop: true,
+      speed: 600,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 1,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        992: {
+          slidesPerView: 3,
+        }
       }
     });
-  }
+  
+    // Fix for Swiper height calculation
+    function updateSwiperHeight() {
+      const swiper = document.querySelector('.testimonial-swiper');
+      const slides = swiper.querySelectorAll('.swiper-slide');
+      let maxHeight = 0;
+      
+      slides.forEach(slide => {
+        const height = slide.offsetHeight;
+        if (height > maxHeight) maxHeight = height;
+      });
+      
+      swiper.style.height = maxHeight + 'px';
+    }
+  
+    // Initial height calculation
+    updateSwiperHeight();
+    
+    // Recalculate on window resize
+    window.addEventListener('resize', updateSwiperHeight);
 
-  window.addEventListener("load", initSwiper);
+
+
 
   /**
    * Frequently Asked Questions Toggle
@@ -233,29 +286,68 @@
 //contact us email form script
 
 
-
 const form = document.querySelector(".php-email-form");
+const submitBtn = form.querySelector(".submit-btn");
+const customAlert = document.getElementById("customAlert");
+const alertMessage = customAlert.querySelector(".custom-alert-message");
+const alertIcon = customAlert.querySelector(".custom-alert-icon");
+const alertClose = customAlert.querySelector(".custom-alert-close");
+
+// Function to show alert
+function showAlert(type, message) {
+  customAlert.className = `custom-alert ${type} show`;
+  alertMessage.textContent = message;
+  alertIcon.textContent = type === 'success' ? '✓' : '!';
+  
+  // Auto-hide after 5 seconds
+  setTimeout(() => {
+    customAlert.classList.remove('show');
+  }, 5000);
+}
+
+// Close alert when X is clicked
+alertClose.addEventListener('click', () => {
+  customAlert.classList.remove('show');
+});
 
 form.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission
+  event.preventDefault();
   
+  // Show loading state
+  submitBtn.classList.add('loading');
+  submitBtn.textContent = 'Sending...';
+
   emailjs.send("service_uoir788", "template_dffljlm", {
-    from_name: document.getElementById("name-field").value,   // Maps to {{from_name}}
-    from_email: document.getElementById("email-field").value, // Maps to {{from_email}}
-    subject: document.getElementById("subject-field").value,  // Maps to {{subject}}
-    message: document.getElementById("message-field").value   // Maps to {{message}}
+    from_name: document.getElementById("name-field").value,
+    from_email: document.getElementById("email-field").value,
+    subject: document.getElementById("subject-field").value,
+    message: document.getElementById("message-field").value
   })
   .then(response => {
-    alert("Email sent successfully!");
+    showAlert('success', 'Email sent successfully!');
+    
+    // Clear form
+    document.getElementById("name-field").value = '';
+    document.getElementById("email-field").value = '';
+    document.getElementById("subject-field").value = '';
+    document.getElementById("message-field").value = '';
+    
+    // Reset button
+    submitBtn.classList.remove('loading');
+    submitBtn.textContent = 'Send E-mail';
+    
+    // Add a little celebration animation to the button
+    submitBtn.style.animation = 'buttonPulse 0.5s';
+    setTimeout(() => {
+      submitBtn.style.animation = '';
+    }, 500);
   })
   .catch(error => {
     console.error("Error sending email:", error);
+    showAlert('error', 'Failed to send email. Please try again.');
+    
+    // Reset button
+    submitBtn.classList.remove('loading');
+    submitBtn.textContent = 'Send E-mail';
   });
-
-
-
-  document.getElementById("name-field").value = '';
-  document.getElementById("email-field").value = '';
- document.getElementById("subject-field").value = '';
- document.getElementById("message-field").value = ''; 
 });

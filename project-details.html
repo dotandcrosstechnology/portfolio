@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Lightbox Gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2A2A72;
+            --secondary-color: #009FFD;
+            --accent-color: #FF0076;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f8f9fa;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(45deg);
+            pointer-events: none;
+
+        }
+
+        .project-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin: 0.3rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .feature-list li {
+            padding: 1rem;
+            background: rgba(var(--secondary-color), 0.1);
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .demo-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .demo-btn:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(var(--accent-color), 0.3);
+        }
+        
+     
+    </style>
+</head>
+<body>
+    <!-- Project Header -->
+    <header class="project-header">
+        <div class="container text-center">
+            <h1 class="project-title display-3 mb-3" id="projectTitle"></h1>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="lead" id="projectShortDesc"></p>
+                    <a href="#" id="liveDemoLink" class="demo-btn" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                        </svg>
+                        View Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Main Content -->
+        <div class="row">
+            <!-- Project Overview -->
+            <div class="col-lg-8">
+                <div class="project-card">
+                    <h2 class="mb-4">Project Overview</h2>
+                    <p id="projectOverview"></p>
+                    <div class="mt-4">
+                        <h3>Features</h3>
+                        <ul class="feature-list list-unstyled" id="projectFeatures"></ul>
+                    </div>
+                </div>
+
+                <!-- Challenges & Solutions -->
+                <div class="project-card mt-4">
+                    <h3>Challenges & Solutions</h3>
+                    <div class="row" id="projectChallenges"></div>
+                </div>
+            </div>
+
+            <!-- Tech Stack & Details -->
+            <div class="col-lg-4">
+                <div class="project-card">
+                    <h3>Technical Stack</h3>
+                    <div class="tech-stack" id="techStack"></div>
+                    
+                    <div class="mt-4">
+                        <h4>Project Details</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>Client:</strong> <span id="projectClient"></span></li>
+                            <li class="mb-2"><strong>Date:</strong> <span id="projectDate"></span></li>
+                            <li class="mb-2"><strong>Category:</strong> <span id="projectType"></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Gallery -->
+        <section class="project-card mt-4">
+            <h2>Project Gallery</h2>
+            <div class="gallery-grid" id="projectGallery"></div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/portfolio.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectId = localStorage.getItem('selectedProjectId');
+            const project = portfolioData.find(p => p.id === parseInt(projectId));
+    
+            console.log("Loaded project:", project);
+
+    
+            if (project) {
+                // Header Section
+                document.getElementById('projectTitle').textContent = project.title;
+                document.getElementById('projectShortDesc').textContent = project.shortDesc;
+    
+                const liveDemoLink = document.getElementById('liveDemoLink');
+                console.log(liveDemoLink);
+                liveDemoLink.setAttribute("href",project.liveUrl);
+    
+                // Overview Section
+                document.getElementById('projectOverview').textContent = project.overview;
+
+                // Features List
+                const featuresList = document.getElementById('projectFeatures');
+                project.features.forEach(feature => {
+                    featuresList.innerHTML += `
+                        <li>
+                            <strong>${feature.title}</strong><br>
+                            ${feature.description}
+                        </li>
+                    `;
+                });
+
+                // Tech Stack
+                const techStack = document.getElementById('techStack');
+                project.technologies.forEach(tech => {
+                    techStack.innerHTML += `<span class="tech-badge">${tech}</span>`;
+                });
+
+                // Project Details
+                document.getElementById('projectClient').textContent = project.client;
+                document.getElementById('projectDate').textContent = project.date;
+                document.getElementById('projectType').textContent = project.type;
+
+                // Gallery
+                const gallery = document.getElementById('projectGallery');
+                project.galleryImages.forEach((img, index) => {
+                    gallery.innerHTML += `
+                        <a href="${img}" data-lightbox="gallery" class="gallery-item">
+                            <img src="${img}" alt="Gallery Image ${index + 1}" class="img-fluid">
+                        </a>
+                    `;
+                });
+
+                // Challenges
+                const challenges = document.getElementById('projectChallenges');
+                project.challenges.forEach(challenge => {
+                    challenges.innerHTML += `
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger">Challenge</h5>
+                                    <p class="card-text">${challenge.challenge}</p>
+                                    <h5 class="card-title text-success">Solution</h5>
+                                    <p class="card-text">${challenge.solution}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

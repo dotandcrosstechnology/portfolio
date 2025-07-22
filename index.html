@@ -307,7 +307,7 @@
               <div class="member-info">
                 <h4>M.Anas Yousaf</h4>
                 <span>Founder and Developer</span>
-                <!-- <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p> -->
+                <p></p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -324,7 +324,7 @@
               <div class="member-info">
                 <h4>Abdul Rehman Khalid</h4>
                 <span>Co-Founder and Developer</span>
-                <!-- <p>Aut maiores voluptates amet et quis praesentium qui senda para</p> -->
+                <p></p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -342,7 +342,7 @@
               <div class="member-info">
                 <h4>Abdullah Mushtaq</h4>
                 <span>Co-Founder and Developer</span>
-                <!-- <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p> -->
+                <p></p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -353,22 +353,22 @@
             </div>
           </div><!-- End Team Member -->
 
-          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member d-flex align-items-start justify-content-center">
+              <div class="pic" ><img src="assets/img/team/Yasar.jpg" class="img-fluid" alt="" ></div>
               <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+                <h4>Yasar</h4>
+                <span>Co-Founder and Developer</span>
+                <!-- <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p> -->
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://x.com/yasirpatras12?s=11"><i class="bi bi-twitter-x"></i></a>
+                  <a href="https://www.facebook.com/yaser.lovere?mibextid=wwXIfr&mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/btwitx.yaser?igsh=MWNzNnp3bXE4cTB4ZQ%3D%3D&utm_source=qr"><i class="bi bi-instagram"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
                 </div>
               </div>
             </div>
-          </div>End Team Member -->
+          </div>
 
         </div>
 
@@ -756,7 +756,31 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/portfolio.js"></script>
 
+  <!-- Chatbot Button and Modal -->
+<button id="chatbotBtn" type="button" class="btn btn-primary rounded-circle position-fixed" style="bottom: 30px; right: 30px; z-index: 1050; width: 60px; height: 60px;" data-bs-toggle="modal" data-bs-target="#chatbotModal">
+  <i class="bi bi-chat-dots" style="font-size: 1.5rem;"></i>
+</button>
 
+<div class="modal fade" id="chatbotModal" tabindex="-1" aria-labelledby="chatbotModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header align-items-center">
+        <span class="d-inline-flex align-items-center justify-content-center bg-light border rounded-circle me-2" style="width: 40px; height: 40px;"><i class="bi bi-robot" style="font-size: 1.5rem; color: #0d6efd;"></i></span>
+        <h5 class="modal-title d-flex align-items-center" id="chatbotModalLabel">Webby <span class="ms-2 badge bg-info">Bot</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+        <div id="chatbotMessages" class="mb-3" style="min-height: 200px;"></div>
+        <div id="chatbotTyping" class="mb-2" style="display:none;"><span class="text-muted"><span class='d-inline-flex align-items-center justify-content-center bg-light border rounded-circle me-1' style='width:24px;height:24px;'><i class='bi bi-robot' style='font-size:1.1rem;color:#0d6efd;'></i></span>Webby is typing...</span></div>
+        <form id="chatbotForm" class="d-flex">
+          <input type="text" id="chatbotInput" class="form-control me-2" placeholder="Type your question..." required autocomplete="off">
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+        <div id="chatbotSuggestions" class="mt-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 

@@ -1421,7 +1421,17 @@ section,
 }
 
 .team .team-member .pic img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
   transition: ease-in-out 0.3s;
+}
+
+/* Center the face for the fourth team member's image */
+.team .team-member .pic img[src*="Yasar.jpg"] {
+  object-position: center top;
 }
 
 .team .team-member:hover {
